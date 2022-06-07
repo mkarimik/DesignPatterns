@@ -13,15 +13,19 @@ Console.WriteLine(esfehan);
 Console.WriteLine("All personnel of Shiraz : ");
 Console.WriteLine(shiraz);
 
+var mainEmployees = new MainEmployees();
+
 var tehranAdapter = new TehranAdapter(tehran.GetEmployees());
-var all = tehranAdapter.GetEmployees();
+var tehranAdaptered = tehranAdapter.GetEmployees();
+mainEmployees.SetEmployees(tehranAdaptered);
 
 var esfehanAdapter = new EsfehanAdapter(esfehan.GetEmployees());
-all.AddRange(esfehanAdapter.GetEmployees());
+var esfehanAdaptered = esfehanAdapter.GetEmployees();
+mainEmployees.SetEmployees(esfehanAdaptered);
 
 var shirazAdapter = new ShirazAdapter(shiraz.GetEmployees());
-all.AddRange(shirazAdapter.GetEmployees());
+var shirazAdaptered = shirazAdapter.GetEmployees();
+mainEmployees.SetEmployees(shirazAdaptered);
 
-var mainEmployees = new MainEmployees(all);
 Console.WriteLine("All personnels : ");
 Console.WriteLine(mainEmployees);

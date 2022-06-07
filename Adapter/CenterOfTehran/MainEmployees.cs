@@ -4,9 +4,15 @@ public class MainEmployees : IMainEmployees
 {
     List<MainEmployee> _employeeList;
 
-    public MainEmployees(List<MainEmployee> employeeList)
+    public MainEmployees()
     {
-        _employeeList = employeeList;
+        _employeeList = new List<MainEmployee>();
+    }
+
+    public List<MainEmployee> SetEmployees(List<MainEmployee> employeeList)
+    {
+        _employeeList.AddRange(employeeList);
+        return _employeeList;
     }
 
     public List<MainEmployee> GetEmployees()
