@@ -16,6 +16,7 @@ Console.WriteLine(esfehan);
 Console.WriteLine("All personnel of Shiraz : ");
 Console.WriteLine(shiraz);
 
+// MainEmployees is a class for keep the final List<MainEmployee> 
 var mainEmployees = new MainEmployees();
 
 // tehranEmployees is a list of Employee class => List<AdapterDesignPattern.Tehran.Employee>
@@ -24,7 +25,7 @@ var tehranEmployees = tehran.GetEmployees();
 var tehranAdapter = new TehranAdapter(tehranEmployees);
 // tehranAdaptered is a List<MainEmployee> of Tehran employees
 var tehranAdaptered = tehranAdapter.GetEmployees();
-// Concat data
+// Concat data for final List<MainEmployee> 
 mainEmployees.SetEmployees(tehranAdaptered);
 
 // esfehanEmployees is a System.Collections.ArrayList of List<string> that is list of employee info   
@@ -33,7 +34,7 @@ var esfehanEmployees = esfehan.GetEmployees();
 var esfehanAdapter = new EsfehanAdapter(esfehanEmployees);
 // esfehanAdaptered is a List<MainEmployee> of Esfehan employees
 var esfehanAdaptered = esfehanAdapter.GetEmployees();
-// Concat data
+// Concat data for final List<MainEmployee> 
 mainEmployees.SetEmployees(esfehanAdaptered);
 
 // shirazEmployees is a string[][] that is array of employee array info
@@ -42,8 +43,9 @@ var shirazEmployees = shiraz.GetEmployees();
 var shirazAdapter = new ShirazAdapter(shirazEmployees);
 // shirazAdaptered is a List<MainEmployee> of Shiraz employees
 var shirazAdaptered = shirazAdapter.GetEmployees();
-// Concat data
+// Concat data for final List<MainEmployee> 
 mainEmployees.SetEmployees(shirazAdaptered);
 
+// Print final List<MainEmployee>
 Console.WriteLine("All personnels : ");
 Console.WriteLine(mainEmployees);
