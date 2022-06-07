@@ -1,7 +1,10 @@
 ﻿using AdapterDesignPattern.CenterOfTehran;
 
+// Employees class for Tehran city employees 
 var tehran = new AdapterDesignPattern.Tehran.Employees();
+// Employees class for Esfehan city employees 
 var esfehan = new AdapterDesignPattern.Esfehan.Employees();
+// Employees class for Shiraz city employees 
 var shiraz = new AdapterDesignPattern.Shiraz.Employees();
 
 Console.WriteLine("All personnel of Tehran : ");
@@ -15,16 +18,31 @@ Console.WriteLine(shiraz);
 
 var mainEmployees = new MainEmployees();
 
-var tehranAdapter = new TehranAdapter(tehran.GetEmployees());
+// tehranEmployees is a list of Employee class => List<AdapterDesignPattern.Tehran.Employee>
+var tehranEmployees = tehran.GetEmployees();
+// tehranAdapter is an adapter for change the List<AdapterDesignPattern.Tehran.Employee> to List<MainEmployee>
+var tehranAdapter = new TehranAdapter(tehranEmployees);
+// tehranAdaptered is a List<MainEmployee> of Tehran employees
 var tehranAdaptered = tehranAdapter.GetEmployees();
+// Concat data
 mainEmployees.SetEmployees(tehranAdaptered);
 
-var esfehanAdapter = new EsfehanAdapter(esfehan.GetEmployees());
+// esfehanEmployees is a System.Collections.ArrayList of List<string> that is list of employee info   
+var esfehanEmployees = esfehan.GetEmployees();
+// esfehanAdapter is an adapter for change System.Collections.ArrayList of List<string> to List<MainEmployee>
+var esfehanAdapter = new EsfehanAdapter(esfehanEmployees);
+// esfehanAdaptered is a List<MainEmployee> of Esfehan employees
 var esfehanAdaptered = esfehanAdapter.GetEmployees();
+// Concat data
 mainEmployees.SetEmployees(esfehanAdaptered);
 
-var shirazAdapter = new ShirazAdapter(shiraz.GetEmployees());
+// shirazEmployees is a string[][] that is array of employee array info
+var shirazEmployees = shiraz.GetEmployees();
+// shirazAdapter is an adapter for change string[][] to List<MainEmployee>
+var shirazAdapter = new ShirazAdapter(shirazEmployees);
+// shirazAdaptered is a List<MainEmployee> of Shiraz employees
 var shirazAdaptered = shirazAdapter.GetEmployees();
+// Concat data
 mainEmployees.SetEmployees(shirazAdaptered);
 
 Console.WriteLine("All personnels : ");
