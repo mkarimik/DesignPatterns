@@ -10,6 +10,19 @@ public class Pizza
 
     public override string ToString()
     {
-        return base.ToString();
+        var mainMaterial = "=================================================";
+
+        mainMaterial += "\r\nMain material : ";
+        foreach (var item in MainMaterial)
+        {
+            mainMaterial += $"\r\n\t{item.Key} = {item.Value}";
+        }
+
+        mainMaterial += $"\r\n\r\nTemperature : {Temperature}C";
+        mainMaterial += $"\r\n\r\nBakingTime : {BakingTime.Minute}m";
+
+        mainMaterial += "\r\n-------------------------------------------------\r\n";
+
+        return mainMaterial;
     }
 }
