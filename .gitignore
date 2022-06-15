@@ -10,3 +10,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 .vscode/launch.json
+.vs/DesignPatterns/project-colors.json
+.vs/DesignPatterns/DesignTimeBuild/.dtbcache.v2
+.vs/DesignPatterns/v17/.futdcache.v1
+.vs/DesignPatterns/v17/.suo
